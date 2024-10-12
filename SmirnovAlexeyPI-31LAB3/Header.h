@@ -35,6 +35,11 @@ public:
     ~Playlist() {
         delete[] tracks;
     }
+    void viewSongs() {
+        for (int i = 0; i < total_number_of_tracks; i++) {
+            printf("%d. %s\n", i + 1, tracks[i].getTitle());
+        }
+    }
     void addSong(const Track& song) {
         Track* newTracks = new Track[total_number_of_tracks + 1];
         for (int i = 0; i < total_number_of_tracks; i++) {
@@ -100,6 +105,24 @@ public:
         fclose(file);
     }
 };
+
+// Класс для демонстрации признака ассоциаций
+class User {
+private:
+    Playlist* playlist;
+public:
+    User(Playlist* playlist) : playlist(playlist) {}
+    void addSongToPlaylist(const Track& song) {
+        playlist->addSong(song);
+    }
+    void removeSongFromPlaylist(int index) {
+        playlist->removeSong(index);
+    }
+    void viewPlaylist() {
+        playlist->viewSongs();
+    }
+};
+
 
 // Класс для хранения громкости
 class Volume {

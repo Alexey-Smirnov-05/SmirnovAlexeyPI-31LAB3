@@ -5,6 +5,7 @@ int main() {
     setlocale(LC_ALL, "RUS");
 
     Playlist playlist;
+    User user(&playlist);
     Volume volume;
 
     playlist.load_tracks_from_file("playlist.txt");
@@ -34,7 +35,7 @@ int main() {
             fgets(title, 100, stdin);
             title[strcspn(title, "\n")] = 0;
             song.setTitle(title);
-            playlist.addSong(song);
+            user.addSongToPlaylist(song);
             playlist.save_tracks_to_file("playlist.txt");
             break;
         }
