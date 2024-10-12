@@ -133,7 +133,7 @@ public:
     void changeVolume(int new_volume) {
         if (new_volume >= 0 && new_volume <= 100) {
             volume = new_volume;
-            printf("Громкость изменена на %d%\n", volume);
+            printf("Громкость изменена на %d%%\n", volume);
         }
         else {
             printf("Неверная громкость\n");
